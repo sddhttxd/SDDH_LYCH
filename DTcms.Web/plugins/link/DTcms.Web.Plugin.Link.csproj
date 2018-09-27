@@ -36,18 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DTcms.Common, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\DTcms.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="DTcms.DBUtility, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\DTcms.DBUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="DTcms.Web.UI, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\DTcms.Web.UI\obj\Debug\DTcms.Web.UI.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
@@ -94,12 +82,24 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\DTcms.BLL\DTcms.BLL.csproj">
-      <Project>{EC27BBA4-030C-4853-9FB2-A075654B28FA}</Project>
+      <Project>{73366def-cd64-45bf-b887-c37ea39be824}</Project>
       <Name>DTcms.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\DTcms.Common\DTcms.Common.csproj">
+      <Project>{408686e7-0249-4899-85e0-77aca8f9f07f}</Project>
+      <Name>DTcms.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DTcms.DBUtility\DTcms.DBUtility.csproj">
+      <Project>{e9fe3d7f-2fb9-4c49-9a67-2843ec82ebe9}</Project>
+      <Name>DTcms.DBUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\DTcms.Model\DTcms.Model.csproj">
-      <Project>{59E451EA-4E7A-408A-9F5C-36F2AC8D90AD}</Project>
+      <Project>{2bbc90cb-5d42-4f0f-bf96-4da42f4ddb39}</Project>
       <Name>DTcms.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DTcms.Web.UI\DTcms.Web.UI.csproj">
+      <Project>{091d59da-1edb-4325-984d-f3b5547f781e}</Project>
+      <Name>DTcms.Web.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

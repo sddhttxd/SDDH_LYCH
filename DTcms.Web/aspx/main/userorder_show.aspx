@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2017/6/9 21:43:23.
-		本页面代码由DTcms模板引擎生成于 2017/6/9 21:43:23. 
+		This page was created by DTcms Template Engine at 2018-09-26 16:33:17.
+		本页面代码由DTcms模板引擎生成于 2018-09-26 16:33:17. 
 	*/
 
 	base.OnInit(e);
@@ -37,7 +37,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("/js/common.js\"></");
 	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<!--页面头部-->\r\n");
 
-	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.dtcms.net\">动力启航官网</a>\r\n                <a target=\"_blank\" href=\"http://demo.dtcms.net\">DTcms演示站</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");
+	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club\">替天行道官网</a>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club/admin\">后台管理中心</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=user_check_login\",\r\n                    dataType: \"json\",\r\n                    timeout: 20000,\r\n                    success: function (data, textStatus) {\r\n                        if (data.status == 1) {\r\n                            $(\"#menu\").prepend('<a href=\"");
 	templateBuilder.Append(linkurl("usercenter","exit"));
@@ -302,7 +302,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n                    </li>\r\n                    <!--/完成-->\r\n                </ul>\r\n            </div>\r\n            <!--/订单进度-->\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n            \r\n            <!--订单概述-->\r\n            <div class=\"form-box accept-box\">\r\n                <dl class=\"head\">\r\n                    <dd>\r\n                        订单号：");
+	templateBuilder.Append("\r\n            \r\n            <!--订单概述-->\r\n            <div class=\"form-box accept-box\">\r\n                <dl class=\"head form-group\">\r\n                    <dd>\r\n                        订单号：");
 	templateBuilder.Append(Utils.ObjectToStr(model.order_no));
 	templateBuilder.Append("\r\n                        ");
 	if (get_order_payment_status(model.id))
@@ -314,14 +314,14 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\">去付款</a>\r\n                        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                    </dd>\r\n                </dl>\r\n                <dl>\r\n                    <dt>订单状态：</dt>\r\n                    <dd>\r\n                        ");
+	templateBuilder.Append("\r\n                    </dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>订单状态：</dt>\r\n                    <dd>\r\n                        ");
 	templateBuilder.Append(get_order_status(model.id).ToString());
 
 	templateBuilder.Append("\r\n                    </dd>\r\n                </dl>\r\n                ");
 	if (model.payment_status>0)
 	{
 
-	templateBuilder.Append("\r\n                <dl>\r\n                    <dt>支付方式：</dt>\r\n                    <dd>");
+	templateBuilder.Append("\r\n                <dl class=\"form-group\">\r\n                    <dt>支付方式：</dt>\r\n                    <dd>");
 	templateBuilder.Append(get_payment_title(model.payment_id).ToString());
 
 	templateBuilder.Append("</dd>\r\n                </dl>\r\n                ");
@@ -330,17 +330,17 @@ override protected void OnInit(EventArgs e)
 	if (model.express_status==2)
 	{
 
-	templateBuilder.Append("\r\n                <dl>\r\n                    <dt>发货单号：</dt>\r\n                    <dd>");
+	templateBuilder.Append("\r\n                <dl class=\"form-group\">\r\n                    <dt>发货单号：</dt>\r\n                    <dd>");
 	templateBuilder.Append(get_express_title(model.express_id).ToString());
 
 	templateBuilder.Append(" ");
 	templateBuilder.Append(Utils.ObjectToStr(model.express_no));
-	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl>\r\n                    <dt>物流信息：</dt>\r\n                    <dd>\r\n                        ");
+	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>物流信息：</dt>\r\n                    <dd>\r\n                        ");
 	templateBuilder.Append(Utils.ObjectToStr(expressdetail));
 	templateBuilder.Append("\r\n                    </dd>\r\n                </dl>\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n            </div>\r\n            <!--/订单概述-->\r\n            \r\n            <!--商品列表-->\r\n            <div class=\"table-warp\">\r\n                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"ftable\">\r\n                    <tr>\r\n                        <th align=\"left\" colspan=\"2\">商品信息</th>\r\n                        <th width=\"10%\">单价</td>\r\n                        <th width=\"10%\">积分</th>\r\n                        <th width=\"10%\">数量</th>\r\n                        <th width=\"10%\">金额</th>\r\n                        <th width=\"10%\">积分</th>\r\n                    </tr>\r\n                    ");
+	templateBuilder.Append("\r\n            </div>\r\n            <!--/订单概述-->\r\n            \r\n            <!--商品列表-->\r\n            <div class=\"table-wrap\">\r\n                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"ftable\">\r\n                    <tr>\r\n                        <th align=\"left\" colspan=\"2\">商品信息</th>\r\n                        <th width=\"10%\">单价</td>\r\n                        <th width=\"10%\">积分</th>\r\n                        <th width=\"10%\">数量</th>\r\n                        <th width=\"10%\">金额</th>\r\n                        <th width=\"10%\">积分</th>\r\n                    </tr>\r\n                    ");
 	if (model.order_goods!=null)
 	{
 
@@ -401,44 +401,44 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(Utils.ObjectToStr(model.invoice_taxes));
 	templateBuilder.Append("</b></p>\r\n                            <p style=\"font-size:22px;\">应付总金额：<b class=\"red\">￥");
 	templateBuilder.Append(Utils.ObjectToStr(model.order_amount));
-	templateBuilder.Append("</b></p>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n            <!--/商品列表-->\r\n            \r\n            <!--收货信息-->\r\n            <div class=\"form-box accept-box\">\r\n                <dl class=\"head\">\r\n                    <dd>收货信息</dd>\r\n                </dl>\r\n            <dl>\r\n                <dt>顾客姓名：</dt>\r\n                <dd>");
+	templateBuilder.Append("</b></p>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n            <!--/商品列表-->\r\n            \r\n            <!--收货信息-->\r\n            <div class=\"form-box accept-box\">\r\n                <dl class=\"head form-group\">\r\n                    <dd>收货信息</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>顾客姓名：</dt>\r\n                    <dd>");
 	templateBuilder.Append(Utils.ObjectToStr(model.accept_name));
-	templateBuilder.Append("</dd>\r\n            </dl>\r\n            <dl>\r\n                <dt>送货地址：</dt>\r\n                <dd>");
+	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>送货地址：</dt>\r\n                    <dd>");
 	templateBuilder.Append(Utils.ObjectToStr(model.area));
 	templateBuilder.Append(" ");
 	templateBuilder.Append(Utils.ObjectToStr(model.address));
 	templateBuilder.Append(" ");
 	templateBuilder.Append(Utils.ObjectToStr(model.post_code));
-	templateBuilder.Append("</dd>\r\n            </dl>\r\n            <dl>\r\n                <dt>联系电话：</dt>\r\n                <dd>");
+	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>联系电话：</dt>\r\n                    <dd>");
 	templateBuilder.Append(Utils.ObjectToStr(model.mobile));
 	templateBuilder.Append(" ");
 	templateBuilder.Append(Utils.ObjectToStr(model.telphone));
-	templateBuilder.Append("</dd>\r\n            </dl>\r\n            <dl>\r\n                <dt>电子邮箱：</dt>\r\n                <dd>");
+	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>电子邮箱：</dt>\r\n                    <dd>");
 	templateBuilder.Append(Utils.ObjectToStr(model.email));
-	templateBuilder.Append("</dd>\r\n            </dl>\r\n            <dl>\r\n                <dt>备注留言：</dt>\r\n                <dd>");
+	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>备注留言：</dt>\r\n                    <dd>");
 	templateBuilder.Append(Utils.ObjectToStr(model.message));
-	templateBuilder.Append("</dd>\r\n            </dl>\r\n            <dl>\r\n                <dt>开具发票：</dt>\r\n                <dd>\r\n                    ");
+	templateBuilder.Append("</dd>\r\n                </dl>\r\n                <dl class=\"form-group\">\r\n                    <dt>开具发票：</dt>\r\n                    <dd>\r\n                        ");
 	if (model.is_invoice==1)
 	{
 
-	templateBuilder.Append("\r\n                        是\r\n                    ");
+	templateBuilder.Append("\r\n                            是\r\n                        ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n                        否\r\n                    ");
+	templateBuilder.Append("\r\n                            否\r\n                        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                </dd>\r\n            </dl>\r\n            ");
+	templateBuilder.Append("\r\n                    </dd>\r\n                </dl>\r\n                ");
 	if (model.is_invoice==1)
 	{
 
-	templateBuilder.Append("\r\n            <dl>\r\n                <dt>发票抬头：</dt>\r\n                <dd>\r\n                    ");
+	templateBuilder.Append("\r\n                <dl class=\"form-group\">\r\n                    <dt>发票抬头：</dt>\r\n                    <dd>\r\n                        ");
 	templateBuilder.Append(Utils.ObjectToStr(model.invoice_title));
-	templateBuilder.Append("\r\n                </dd>\r\n            </dl>\r\n            ");
+	templateBuilder.Append("\r\n                    </dd>\r\n                </dl>\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </div>\r\n            <!--/收货信息-->\r\n            \r\n        </div>\r\n    </div>\r\n    <!--/页面左边-->\r\n</div>\r\n\r\n<!--页面底部-->\r\n");
+	templateBuilder.Append("\r\n            </div>\r\n            <!--/收货信息-->\r\n            \r\n        </div>\r\n    </div>\r\n    <!--/页面左边-->\r\n</div>\r\n\r\n<!--页面底部-->\r\n");
 
 	templateBuilder.Append("<div class=\"footer\">\r\n    <div class=\"section\">\r\n        <div class=\"foot-nav\">\r\n            <a href=\"");
 	templateBuilder.Append(linkurl("index"));

@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2017/6/9 21:43:24.
-		本页面代码由DTcms模板引擎生成于 2017/6/9 21:43:24. 
+		This page was created by DTcms Template Engine at 2018-09-26 16:33:17.
+		本页面代码由DTcms模板引擎生成于 2018-09-26 16:33:17. 
 	*/
 
 	base.channel = "video";
@@ -46,7 +46,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("', 'video-box', '" + Utils.ObjectToStr(model.fields["video_src"]) + "');\r\n});\r\n//改变大小函数\r\nfunction winResize(){\r\n	if($(\".section\").width() == 1160){\r\n		$(\".video-box\").width(785);\r\n		$(\".video-box\").height(441);\r\n	}else{\r\n		$(\".video-box\").width(550);\r\n		$(\".video-box\").height(309);\r\n	}\r\n}\r\n</");
 	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body id=\"video\">\r\n<!--页面头部-->\r\n");
 
-	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.dtcms.net\">动力启航官网</a>\r\n                <a target=\"_blank\" href=\"http://demo.dtcms.net\">DTcms演示站</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");
+	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club\">替天行道官网</a>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club/admin\">后台管理中心</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=user_check_login\",\r\n                    dataType: \"json\",\r\n                    timeout: 20000,\r\n                    success: function (data, textStatus) {\r\n                        if (data.status == 1) {\r\n                            $(\"#menu\").prepend('<a href=\"");
 	templateBuilder.Append(linkurl("usercenter","exit"));

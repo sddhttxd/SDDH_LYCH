@@ -24,6 +24,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1496,33 +1498,7 @@
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DTcms.API\DTcms.API.csproj">
-      <Project>{D9EE530C-FFD2-45DA-B4AF-2CA4586EF67F}</Project>
-      <Name>DTcms.API</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTcms.BLL\DTcms.BLL.csproj">
-      <Project>{73366DEF-CD64-45BF-B887-C37EA39BE824}</Project>
-      <Name>DTcms.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTcms.Common\DTcms.Common.csproj">
-      <Project>{408686E7-0249-4899-85E0-77ACA8F9F07F}</Project>
-      <Name>DTcms.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTcms.Model\DTcms.Model.csproj">
-      <Project>{2BBC90CB-5D42-4F0F-BF96-4DA42F4DDB39}</Project>
-      <Name>DTcms.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTcms.Web.UI\DTcms.Web.UI.csproj">
-      <Project>{091D59DA-1EDB-4325-984D-F3B5547F781E}</Project>
-      <Name>DTcms.Web.UI</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="aspx\" />
-    <Folder Include="plugins\" />
-    <Folder Include="upload\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="admin\skin\icon\iconfont.eot" />
     <Content Include="admin\skin\icon\iconfont.ttf" />
@@ -1547,6 +1523,32 @@
     <None Include="templates\mobile\css\icon\iconfont.eot" />
     <None Include="templates\mobile\css\icon\iconfont.ttf" />
     <None Include="templates\mobile\css\icon\iconfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTcms.API\DTcms.API.csproj">
+      <Project>{d9ee530c-ffd2-45da-b4af-2ca4586ef67f}</Project>
+      <Name>DTcms.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTcms.BLL\DTcms.BLL.csproj">
+      <Project>{73366def-cd64-45bf-b887-c37ea39be824}</Project>
+      <Name>DTcms.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTcms.Common\DTcms.Common.csproj">
+      <Project>{408686e7-0249-4899-85e0-77aca8f9f07f}</Project>
+      <Name>DTcms.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTcms.DBUtility\DTcms.DBUtility.csproj">
+      <Project>{e9fe3d7f-2fb9-4c49-9a67-2843ec82ebe9}</Project>
+      <Name>DTcms.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTcms.Model\DTcms.Model.csproj">
+      <Project>{2bbc90cb-5d42-4f0f-bf96-4da42f4ddb39}</Project>
+      <Name>DTcms.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTcms.Web.UI\DTcms.Web.UI.csproj">
+      <Project>{091d59da-1edb-4325-984d-f3b5547f781e}</Project>
+      <Name>DTcms.Web.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

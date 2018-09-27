@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2017/6/9 21:43:23.
-		本页面代码由DTcms模板引擎生成于 2017/6/9 21:43:23. 
+		This page was created by DTcms Template Engine at 2018-09-26 16:33:15.
+		本页面代码由DTcms模板引擎生成于 2018-09-26 16:33:15. 
 	*/
 
 	base.OnInit(e);
@@ -39,7 +39,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n$(function(){\r\n    $(\"#slide-box\").jqslider(); //初始化幻灯片\r\n    $(\"#focus-box\").flexslider({\r\n        directionNav: false,\r\n		pauseOnAction: false\r\n	});\r\n});\r\n</");
 	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body id=\"index\">\r\n<!--页面头部-->\r\n");
 
-	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.dtcms.net\">动力启航官网</a>\r\n                <a target=\"_blank\" href=\"http://demo.dtcms.net\">DTcms演示站</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");
+	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club\">替天行道官网</a>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club/admin\">后台管理中心</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=user_check_login\",\r\n                    dataType: \"json\",\r\n                    timeout: 20000,\r\n                    success: function (data, textStatus) {\r\n                        if (data.status == 1) {\r\n                            $(\"#menu\").prepend('<a href=\"");
 	templateBuilder.Append(linkurl("usercenter","exit"));
@@ -95,13 +95,22 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("', '#keywords');\">\r\n                    <i class=\"iconfont icon-search\"></i>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 
-	templateBuilder.Append("\r\n<!--/页面头部-->\r\n\r\n<!--Banner-->\r\n<div id=\"slide-box\" class=\"slide-box\">\r\n    <ul class=\"list-box\">\r\n        <li><a href=\"javascript:;\" target=\"_blank\"><img src=\"");
+	templateBuilder.Append("\r\n<!--/页面头部-->\r\n\r\n<!--Banner-->\r\n<div id=\"slide-box\" class=\"slide-box\">\r\n    <ul class=\"list-box\">\r\n        <!--<li><a href=\"javascript:;\" target=\"_blank\"><img src=\"");
 	templateBuilder.Append("/templates/main");
 	templateBuilder.Append("/images/banner_1.png\" /></a></li>\r\n        <li><a href=\"javascript:;\" target=\"_blank\"><img src=\"");
 	templateBuilder.Append("/templates/main");
 	templateBuilder.Append("/images/banner_2.png\" /></a></li>\r\n        <li><a href=\"javascript:;\" target=\"_blank\"><img src=\"");
 	templateBuilder.Append("/templates/main");
-	templateBuilder.Append("/images/banner_3.png\" /></a></li>\r\n    </ul>\r\n</div>\r\n<!--/Banner-->\r\n\r\n<!--新闻资讯-->\r\n<div class=\"section\">\r\n    <div class=\"main-tit\">\r\n        <h2>新闻资讯</h2>\r\n        <p>\r\n            ");
+	templateBuilder.Append("/images/banner_3.png\" /></a></li>-->\r\n        ");
+	DataTable flashList = get_article_list("flash", 52, 5, "status=0");
+
+	foreach(DataRow dr in flashList.Rows)
+	{
+
+	templateBuilder.Append("\r\n        <li><a href=\"javascript:;\" target=\"_blank\"><img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" /></a></li>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n    </ul>\r\n</div>\r\n<!--/Banner-->\r\n\r\n<!--新闻资讯-->\r\n<div class=\"section\">\r\n    <div class=\"main-tit\">\r\n        <h2>新闻资讯</h2>\r\n        <p>\r\n            ");
 	DataTable newsCList = get_category_child_list("news",0);
 
 	foreach(DataRow dr in newsCList.Rows)
