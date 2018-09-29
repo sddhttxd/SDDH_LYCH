@@ -73,6 +73,35 @@ namespace DTcms.BLL
 
         #region 扩展方法================================
         /// <summary>
+        /// 添加访问记录
+        /// </summary>
+        public void Visit(string location)
+        {
+            string ip = DTRequest.GetIP();
+            string cookieIp = Utils.GetCookie(ip);//读取Cookies
+            if (cookieIp == "")
+            {
+                Utils.WriteCookie(ip, ip);//写Cookies
+                Model.user_login_log _model = CacheHelper.Get<Model.user_login_log>(ip);//读缓存
+                if (_model == null)
+                {
+                    string address = string.IsNullOrWhiteSpace(location) ? visit_location.GetIPAddress(ip) : location;
+                    //string address = visit_location.GetIPAddress(ip);
+                    address = address == "" ? "游客访问" : address;
+                    Model.user_login_log model = new Model.user_login_log();
+                    model.user_id = 0;
+                    model.user_name = "游客";
+                    model.remark = address;
+                    model.login_ip = ip;
+                    model.login_time = DateTime.Now;
+                    //写入访问日志
+                    new BLL.user_login_log().Add(model.id, model.user_name, model.remark);
+                    CacheHelper.Insert(ip, model, 10);//写缓存(10分钟)
+                }
+            }
+        }
+
+        /// <summary>
         /// 增加一条数据
         /// </summary>
         public int Add(int user_id, string user_name, string remark)

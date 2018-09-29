@@ -47,14 +47,13 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.JScript" />
-    <Reference Include="Senparc.Weixin, Version=3.3.9.26585, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Senparc.Weixin.dll</HintPath>
+    <Reference Include="Senparc.Weixin, Version=3.3.9.33960, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.3.3.9\lib\net40\Senparc.Weixin.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin.MP, Version=12.4.6.31436, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Senparc.Weixin.MP.dll</HintPath>
+    <Reference Include="Senparc.Weixin.MP, Version=12.4.6.38710, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.12.4.6\lib\net40\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -84,6 +83,7 @@
     <Content Include="admin\article\comment_list.aspx" />
     <Content Include="admin\article\spec_edit.aspx" />
     <Content Include="admin\article\spec_list.aspx" />
+    <Content Include="admin\article\visit_list.aspx" />
     <Content Include="admin\center.aspx" />
     <Content Include="admin\channel\attribute_field_edit.aspx" />
     <Content Include="admin\channel\attribute_field_list.aspx" />
@@ -816,6 +816,13 @@
     <Compile Include="admin\article\spec_list.aspx.designer.cs">
       <DependentUpon>spec_list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\article\visit_list.aspx.cs">
+      <DependentUpon>visit_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\article\visit_list.aspx.designer.cs">
+      <DependentUpon>visit_list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\center.aspx.cs">
       <DependentUpon>center.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1519,6 +1526,7 @@
     <Content Include="templates\main\css\icon\iconfont.eot" />
     <Content Include="templates\main\css\icon\iconfont.ttf" />
     <Content Include="templates\main\css\icon\iconfont.woff" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="templates\mobile\css\icon\iconfont.eot" />
     <None Include="templates\mobile\css\icon\iconfont.ttf" />

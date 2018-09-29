@@ -9,34 +9,35 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2018-09-26 16:33:15.
-		本页面代码由DTcms模板引擎生成于 2018-09-26 16:33:15. 
+		This page was created by DTcms Template Engine at 2018-09-29 15:17:24.
+		本页面代码由DTcms模板引擎生成于 2018-09-29 15:17:24. 
 	*/
 
 	base.OnInit(e);
 	StringBuilder templateBuilder = new StringBuilder(220000);
 
-	templateBuilder.Append("<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>");
+	templateBuilder.Append("<!doctype html>\r\n<html>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <title>");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_title));
-	templateBuilder.Append("</title>\r\n<meta name=\"keywords\" content=\"");
+	templateBuilder.Append("</title>\r\n    <meta name=\"keywords\" content=\"");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_keyword));
-	templateBuilder.Append("\" />\r\n<meta name=\"description\" content=\"");
+	templateBuilder.Append("\" />\r\n    <meta name=\"description\" content=\"");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_description));
-	templateBuilder.Append("\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append("\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
 	templateBuilder.Append("/templates/main");
-	templateBuilder.Append("/css/style.css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("/css/style.css\" />\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/jquery-1.11.2.min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append("/templates/main");
 	templateBuilder.Append("/js/jquery.flexslider-min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append("/templates/main");
 	templateBuilder.Append("/js/jqslider.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append("/templates/main");
 	templateBuilder.Append("/js/common.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n$(function(){\r\n    $(\"#slide-box\").jqslider(); //初始化幻灯片\r\n    $(\"#focus-box\").flexslider({\r\n        directionNav: false,\r\n		pauseOnAction: false\r\n	});\r\n});\r\n</");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" src=\"https://apis.map.qq.com/tools/geolocation/min?key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\">\r\n        $(function () {\r\n            $(\"#slide-box\").jqslider(); //初始化幻灯片\r\n            $(\"#focus-box\").flexslider({\r\n                directionNav: false,\r\n                pauseOnAction: false\r\n            });\r\n            //获取定位\r\n            getVisitLocation();\r\n        });\r\n    </");
 	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body id=\"index\">\r\n<!--页面头部-->\r\n");
 
 	templateBuilder.Append("<div class=\"header\">\r\n    <div class=\"head-top\">\r\n        <div class=\"section\">\r\n            <div class=\"left-box\">\r\n                <span>网站链接：</span>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club\">替天行道官网</a>\r\n                <a target=\"_blank\" href=\"http://www.ttxd.club/admin\">后台管理中心</a>\r\n            </div>\r\n            <script type=\"text/javascript\">\r\n                $.ajax({\r\n                    type: \"POST\",\r\n                    url: \"");

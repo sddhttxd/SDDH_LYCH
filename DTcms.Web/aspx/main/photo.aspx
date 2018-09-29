@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2018-09-26 16:33:17.
-		本页面代码由DTcms模板引擎生成于 2018-09-26 16:33:17. 
+		This page was created by DTcms Template Engine at 2018-09-29 15:17:27.
+		本页面代码由DTcms模板引擎生成于 2018-09-29 15:17:27. 
 	*/
 
 	base.channel = "photo";

@@ -122,7 +122,7 @@ namespace DTcms.BLL
             }
             return dal.GetList(channelName, Top, strWhere, filedOrder);
         }
-        
+
         /// <summary>
         /// 获得查询分页数据
         /// </summary>
@@ -135,6 +135,20 @@ namespace DTcms.BLL
                 return new DataSet();
             }
             return dal.GetList(channelName, category_id, pageSize, pageIndex, strWhere, filedOrder, out recordCount);
+        }
+
+        /// <summary>
+        /// 获得查询分页数据
+        /// </summary>
+        public DataSet GetLogList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
+        {
+            string channelName = new BLL.site_channel().GetChannelName(channel_id);//查询频道名称
+            if (string.IsNullOrEmpty(channelName))
+            {
+                recordCount = 0;
+                return new DataSet();
+            }
+            return dal.GetLogList(channelName, category_id, pageSize, pageIndex, strWhere, filedOrder, out recordCount);
         }
 
         #endregion

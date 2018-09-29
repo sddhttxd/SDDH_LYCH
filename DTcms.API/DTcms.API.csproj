@@ -34,15 +34,18 @@
     <Reference Include="Aliyun.OSS, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0ad4175f0dac0b9b, processorArchitecture=MSIL">
       <HintPath>..\packages\Aliyun.OSS.SDK.2.4.0\lib\Aliyun.OSS.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin">
-      <HintPath>..\DTcms.Web\bin\Senparc.Weixin.dll</HintPath>
+    <Reference Include="Senparc.Weixin, Version=3.3.9.33960, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.3.3.9\lib\net40\Senparc.Weixin.dll</HintPath>
     </Reference>
-    <Reference Include="Senparc.Weixin.MP">
-      <HintPath>..\DTcms.Web\bin\Senparc.Weixin.MP.dll</HintPath>
+    <Reference Include="Senparc.Weixin.MP, Version=12.4.6.38710, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.12.4.6\lib\net40\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

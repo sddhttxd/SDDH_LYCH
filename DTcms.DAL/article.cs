@@ -492,7 +492,40 @@ namespace DTcms.DAL
             recordCount = Convert.ToInt32(DbHelperSQL.GetSingle(PagingHelper.CreateCountingSql(strSql.ToString())));
             return DbHelperSQL.Query(PagingHelper.CreatePagingSql(recordCount, pageSize, pageIndex, strSql.ToString(), filedOrder));
         }
-		#endregion
+
+        /// <summary>
+        /// 获得查询分页数据
+        /// </summary>
+        public DataSet GetLogList(string channel_name, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
+        {
+            StringBuilder strSql = new StringBuilder();
+            if (channel_name == "visit")
+            {
+                strSql.Append("select * FROM dt_user_login_log");
+            }
+            else
+            {
+                strSql.Append("select * FROM " + databaseprefix + DTKeys.TABLE_CHANNEL_ARTICLE + channel_name);
+            }
+            if (category_id > 0)
+            {
+                strSql.Append(" where category_id in(select id from " + databaseprefix + "article_category where class_list like '%," + category_id + ",%')");
+            }
+            if (strWhere.Trim() != "")
+            {
+                if (category_id > 0)
+                {
+                    strSql.Append(" and " + strWhere);
+                }
+                else
+                {
+                    strSql.Append(" where " + strWhere);
+                }
+            }
+            recordCount = Convert.ToInt32(DbHelperSQL.GetSingle(PagingHelper.CreateCountingSql(strSql.ToString())));
+            return DbHelperSQL.Query(PagingHelper.CreatePagingSql(recordCount, pageSize, pageIndex, strSql.ToString(), filedOrder));
+        }
+        #endregion
 
         #region 扩展方法================================
         /// <summary>

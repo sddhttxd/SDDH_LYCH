@@ -1,6 +1,6 @@
 ﻿/*检测是否移动设备来访否则跳转*/
 if(!browserRedirect()){
-	//location.href = 'http://ly.ttxd.club';
+	//location.href = 'http://lych.ttxd.club';
 }
 /*页面加载完毕时运行函数
 -----------------------------------------------------*/
@@ -404,3 +404,43 @@ function CommentAjaxList(btnObj,listDiv, pageSize, pageCount, sendUrl){
 		}
 	});
 }
+
+
+
+/*//获取定位--------------------------------------------------------------------------------------*/
+function getVisitLocation() {
+    var _address = ""
+    var geolocation = new qq.maps.Geolocation();
+    var options = { timeout: 9000 };
+    geolocation.getLocation(
+        function (position) {
+            if (position != null) {
+                _address = position.province + position.city + position.addr;
+                //if (_address == "") { _address = "上海市闵行区1";}
+                //alert("11:" + _address);
+                visitLog(_address, "success");
+            }
+        },
+        function () {
+            //_address = "上海市闵行区2";
+            //alert("12:" + _address);
+            visitLog(_address, "failure");
+        }, options);
+}
+
+function visitLog(_address, source) {
+    $.ajax({
+        url: 'tools/submit_ajax.ashx?action=visit_log',
+        type: "POST",
+        timeout: 60000,
+        data: { "location": _address, "source": source },
+        dataType: "json",
+        success: function (data, type) {
+            //weui.alert("visit_log:true")
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //weui.alert("状态：" + textStatus + "；出错提示：" + errorThrown);
+        }
+    });
+}
+/*//获取定位--------------------------------------------------------------------------------------*/

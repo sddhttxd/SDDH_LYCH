@@ -50,6 +50,7 @@
     <Compile Include="DTKeys.cs" />
     <Compile Include="DTMail.cs" />
     <Compile Include="DTRequest.cs" />
+    <Compile Include="HttpHelper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="PageTemplate.cs" />
     <Compile Include="PagingHelper.cs" />

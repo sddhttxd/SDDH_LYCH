@@ -156,7 +156,7 @@ textarea.input{ width:300px; height:65px; }
 /* ==========================列表页样式.开始======================== */
 .toolbar-wrap{ padding:10px 0; width:100%; *position:relative; *z-index:1; }
 .toolbar{ top:0; right:15px; left:15px; bottom:auto; padding:10px 0 5px; min-height:32px; background:#fff; z-index:2; font-size:12px; color:#333; }
-	.toolbar:after{ clear:both; content:"."; display:block; height:0; visibility:hidden; }
+	.toolbar:after{ clear:both; content:"."; display:block; min-height:32px; visibility:hidden; }
 	.toolbar .box-wrap{ position:relative; }
 	.toolbar .menu-btn{ display:none; width:30px; height:30px; line-height:30px; text-align:center; border:solid 1px #eee; background:#fafafa; color:#535353; cursor:pointer; }
     .toolbar .menu-btn:hover{ color:#2a72c5; text-decoration:none; }

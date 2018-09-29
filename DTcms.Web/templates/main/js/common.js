@@ -11,7 +11,7 @@ if(pageurl == '?m2w') {
     addCookie('m2wcookie', '1', 0);
 }
 if(getCookie('m2wcookie') != '1' && browserRedirect()) {
-    location.href = 'http://mly.ttxd.club';
+    location.href = 'http://mlych.ttxd.club';
 }
 /*工具类方法
 ------------------------------------------------*/
@@ -519,3 +519,43 @@ function initCUPlayer(sitePath, divId, videoSrc){
     //so.addVariable("JcScpImg",videoPic); //视频图片
     so.write(divId);
 }
+
+
+
+/*//获取定位--------------------------------------------------------------------------------------*/
+function getVisitLocation() {
+    var _address = ""
+    var geolocation = new qq.maps.Geolocation();
+    var options = { timeout: 9000 };
+    geolocation.getLocation(
+        function (position) {
+            if (position != null) {
+                _address = position.province + position.city + position.addr;
+                //if (_address == "") { _address = "上海市闵行区1";}
+                //alert("11:" + _address);
+                visitLog(_address, "success");
+            }
+        },
+        function () {
+            //_address = "上海市闵行区2";
+            //alert("12:" + _address);
+            visitLog(_address, "failure");
+        }, options);
+}
+
+function visitLog(_address, source) {
+    $.ajax({
+        url: 'tools/submit_ajax.ashx?action=visit_log',
+        type: "POST",
+        timeout: 60000,
+        data: { "location": _address, "source": source },
+        dataType: "json",
+        success: function (data, type) {
+            //weui.alert("visit_log:true")
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //weui.alert("状态：" + textStatus + "；出错提示：" + errorThrown);
+        }
+    });
+}
+/*//获取定位--------------------------------------------------------------------------------------*/

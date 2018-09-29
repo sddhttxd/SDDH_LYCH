@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.SessionState;
 using DTcms.Web.UI;
 using DTcms.Common;
+using DTcms.BLL;
 
 namespace DTcms.Web.tools
 {
@@ -134,6 +135,9 @@ namespace DTcms.Web.tools
                     break;
                 case "view_cart_count": //输出当前购物车总数
                     view_cart_count(context);
+                    break;
+                case "visit_log": //记录访问日志
+                    visit_log(context);
                     break;
             }
         }
@@ -369,6 +373,9 @@ namespace DTcms.Web.tools
                 Utils.WriteCookie(DTKeys.COOKIE_USER_PWD_REMEMBER, "DTcms", model.password);
             }
 
+            string ip = DTRequest.GetIP();
+            string address = visit_location.GetIPAddress(ip);
+            address = address == "" ? "会员登录" : address;
             //写入登录日志
             new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
             //返回URL
@@ -448,6 +455,10 @@ namespace DTcms.Web.tools
             //记住登录状态，防止Session提前过期
             Utils.WriteCookie(DTKeys.COOKIE_USER_NAME_REMEMBER, "DTcms", model.user_name);
             Utils.WriteCookie(DTKeys.COOKIE_USER_PWD_REMEMBER, "DTcms", model.password);
+
+            string ip = DTRequest.GetIP();
+            string address = visit_location.GetIPAddress(ip);
+            address = address == "" ? "会员登录" : address;
             //写入登录日志
             new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
             //返回URL
@@ -618,6 +629,10 @@ namespace DTcms.Web.tools
             //记住登录状态，防止Session提前过期
             Utils.WriteCookie(DTKeys.COOKIE_USER_NAME_REMEMBER, "DTcms", model.user_name);
             Utils.WriteCookie(DTKeys.COOKIE_USER_PWD_REMEMBER, "DTcms", model.password);
+
+            string ip = DTRequest.GetIP();
+            string address = visit_location.GetIPAddress(ip);
+            address = address == "" ? "会员登录" : address;
             //写入登录日志
             new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
             //返回URL
@@ -860,6 +875,10 @@ namespace DTcms.Web.tools
                 //防止Session提前过期
                 Utils.WriteCookie(DTKeys.COOKIE_USER_NAME_REMEMBER, "DTcms", model.user_name);
                 Utils.WriteCookie(DTKeys.COOKIE_USER_PWD_REMEMBER, "DTcms", model.password);
+
+                string ip = DTRequest.GetIP();
+                string address = visit_location.GetIPAddress(ip);
+                address = address == "" ? "会员登录" : address;
                 //写入登录日志
                 new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
                 context.Response.Write("{\"status\":1, \"msg\":\"注册成功，欢迎成为本站会员！\", \"url\":\""
@@ -2287,6 +2306,17 @@ namespace DTcms.Web.tools
         private void view_cart_count(HttpContext context)
         {
             context.Response.Write("document.write('" + Web.UI.ShopCart.GetQuantityCount() + "');");
+        }
+        #endregion
+
+        #region 记录访问日志OK
+        /// <summary>
+        /// 记录访问日志
+        /// </summary>
+        private void visit_log(HttpContext context)
+        {
+            string location = DTRequest.GetFormString("location");
+            new user_login_log().Visit(location);
         }
         #endregion
 
